@@ -375,75 +375,131 @@
 // console.log(divisibleSumPairs(2, 2, [8, 10]))
 // console.log(divisibleSumPairs(20, 7, [36, 46, 25, 97, 57, 14, 21, 50, 75, 58, 54, 32, 73, 11, 36, 22, 95, 46, 54, 61]))
 
-function migratoryBirds(arr) {
-    // Write your code here
-    // arr = [1, 4, 4, 4, 5, 3] = input
-    // output = lowest number(type) with most occurences = 4
+// function migratoryBirds(arr) {
+//     // Write your code here
+//     // arr = [1, 4, 4, 4, 5, 3] = input
+//     // output = lowest number(type) with most occurences = 4
     
     
-    // let max = -1
-    // let maxId = 6
-    // 
-    // let store = new Array(6).fill(0)
-    // for(const num of arr) {
-    //     store[num]++
+//     // let max = -1
+//     // let maxId = 6
+//     // 
+//     // let store = new Array(6).fill(0)
+//     // for(const num of arr) {
+//     //     store[num]++
     
-    //     if(store[num] > max ) {
-    //         max = store[num]
-    //         maxId = num
-    //     } else if (store[num] === max && num < maxId) {
-    //         maxId = num
-    //     }
-    // }
-    // return maxId
+//     //     if(store[num] > max ) {
+//     //         max = store[num]
+//     //         maxId = num
+//     //     } else if (store[num] === max && num < maxId) {
+//     //         maxId = num
+//     //     }
+//     // }
+//     // return maxId
 
-    let seenBirds = {}
+//     let seenBirds = {}
 
-    arr.forEach((bird) => {
-        if(!seenBirds[bird]) {
-            seenBirds[bird] = 1
-        }
-        seenBirds[bird]++
-    })
-
-
-    let birdID = 0
-    let total = 0
-
-    for(let key in seenBirds ) {
-        if(seenBirds[key] > total) {
-            total = seenBirds[key]
-            birdID = key
-        } else if (seenBirds[key] == total) {
-            if(birdID > key) {
-                birdID = key
-            }
-        }
-    }
-    return birdID
+//     arr.forEach((bird) => {
+//         if(!seenBirds[bird]) {
+//             seenBirds[bird] = 1
+//         }
+//         seenBirds[bird]++
+//     })
 
 
-    // let sortedBirds = arr.sort() // sorting array by lowest to highest id
-    // let birdId = sortedBirds[0] // current birdID
+//     let birdID = 0
+//     let total = 0
 
-    // let occurences = 1 // the highest amount of times the id has been seen
-    // counter = 0 // the actual count for each bird
+//     for(let key in seenBirds ) {
+//         if(seenBirds[key] > total) {
+//             total = seenBirds[key]
+//             birdID = key
+//         } else if (seenBirds[key] == total) {
+//             if(birdID > key) {
+//                 birdID = key
+//             }
+//         }
+//     }
+//     return birdID
+
+
+//     // let sortedBirds = arr.sort() // sorting array by lowest to highest id
+//     // let birdId = sortedBirds[0] // current birdID
+
+//     // let occurences = 1 // the highest amount of times the id has been seen
+//     // counter = 0 // the actual count for each bird
 
     
 
-    // for(let i = 0; i < sortedBirds.length; i++) { // looping through sortedBirds
-    //     // if 
-    //     if (counter = (sortedBirds[i] === sortedBirds[i-1])) {
-    //         counter++
-    //     } if (counter > occurences) {
-    //         birdId = sortedBirds[i]
-    //         occurences = counter
-    //     }
-    // }
+//     // for(let i = 0; i < sortedBirds.length; i++) { // looping through sortedBirds
+//     //     // if 
+//     //     if (counter = (sortedBirds[i] === sortedBirds[i-1])) {
+//     //         counter++
+//     //     } if (counter > occurences) {
+//     //         birdId = sortedBirds[i]
+//     //         occurences = counter
+//     //     }
+//     // }
 
-    // return birdId
+//     // return birdId
 
+// }
+
+// console.log(migratoryBirds([1, 4, 4, 4, 5, 3]))
+// console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]))
+
+// function dayOfProgrammer(year) {
+//     // Write your code here
+//     // input = year =2017
+//     // output = date of 256th day dd.mm.yyyy = 13.09.2017
+//     // non leap years sept 13th and sept 12th in leap years
+
+//     if (year === 1918) { // if transition year 1918
+//         return "26.09." + year
+//     }
+
+//     //if gregorian leap year 1919 and later
+//         // either divisible by 400
+//         // divisibe by 4 and NOT 100
+//     if(year >= 1919) {
+//         if(year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+//             return "12.09." + year
+//         }
+//     }
+//     // if julian leap year 1917 and earlier
+//         // divisible by 4
+//         if(year <= 1917) {
+//             if(year % 4 == 0) {
+//                 return "12.09." + year
+//             }
+//         }
+//     return "13.09." + year
+
+// }
+
+// console.log(dayOfProgrammer(2700))
+// console.log(dayOfProgrammer(2600))
+// console.log(dayOfProgrammer(2500))
+// console.log(dayOfProgrammer(2300))
+// console.log(dayOfProgrammer(2200))
+// console.log(dayOfProgrammer(2100))
+
+function bonAppetit(bill, k, b) {
+// bill = [ 3, 10, 2, 9 ] = cost of each item
+// k = 1 = cost of item A did not eat
+// b = 12 = amount of money A gave
+// output = amt Anna is owed or Bon Appetit
+// splitting the rest
+    // remove item at bill[k] from array
+  bill.splice(k,1)
+  let sum = (bill.reduce((a,b) => a+b))/2
+
+  if(sum === b) {
+      console.log("Bon Appetit")
+  } else {
+      console.log(b - sum)
+  }
 }
 
-console.log(migratoryBirds([1, 4, 4, 4, 5, 3]))
-console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4]))
+console.log(bonAppetit([72, 53, 60, 66, 90, 62, 12, 31, 36, 94], 6, 288))
+console.log(bonAppetit([ 3, 10, 2, 9 ], 1, 7))
