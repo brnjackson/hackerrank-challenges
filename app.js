@@ -503,3 +503,141 @@
 
 // console.log(bonAppetit([72, 53, 60, 66, 90, 62, 12, 31, 36, 94], 6, 288))
 // console.log(bonAppetit([ 3, 10, 2, 9 ], 1, 7))
+
+// function sockMerchant(n, ar) {
+//     // Write your code here
+//     // n = length of array = 9
+//     // ar = sock pile, listed by color = [10, 20, 20, 10, 10,30, 50, 10, 20]
+
+//     // initialize value for pairs
+//     let pairs = 0
+//     // organize socks by color
+//     ar.sort()
+//     // loop through pile of socks
+//     for(let i = 0; i < n; i++) {
+//         //if current sock is the same as the next sock
+//         if(ar[i] == ar[i+1]) {
+//             // keep sorting through the pile
+//             i++
+//             // add a new pair
+//             pairs++
+//         }
+//     }
+//     // return the amount of pairs
+//     return pairs
+
+//     // let socks = {}
+
+
+//     // return ar.reduce((a, b) => {
+//     //     if(socks[b]) {
+//     //         delete socks[b]
+//     //         return a + 1
+//     //     } else {
+//     //         socks[b] = true
+    
+//     //         return a
+            
+//     //     }
+//     // }, 0)
+// }
+
+// console.log(sockMerchant(9, [10, 20, 20, 10, 10,30, 50, 10, 20]))
+
+// function pageCount(n, p) {
+//     // Write your code here
+//     // n = total number of pages in book = 6
+//     // p = desired page number = 2
+//     // output
+//         // least amt of turns needed to reach desired page number
+//         // from last page n or first page 1
+//         // n = 30
+//         // p = 17
+//         // 1 turn = pg 2/3
+//         // 2 turn 4/5
+//         // 3 = 6/7
+//         // 4 = 8/9
+//         // 5 = 10/11
+//         // 6 = 12/13
+//         // 7 = 14/15
+//         // 8 = 16/17
+// // start from last pg
+//         // 1 = 28/29
+//         // 2 = 26/27
+//         // 3 = 24/25
+//         // 4 = 22/23
+//         // 5 = 20/21
+//         // 6 = 18/19
+//         // 7 = 16/17
+//         //output = 8 turns from begin or 7 turns from n
+
+//     //need to decrement by 2 from n
+//     // need to increment by 2 from 1
+
+//     // turns needed to get to desired page
+//     let pageTurns = Math.floor(p/2) // round down to nearest whole num
+//     // total turns needed to get to end of book
+//     let totalTurns = Math.floor(n/2) 
+
+//     // return lowest number out of pageTurns from pg 1 or pg turns from last page
+//     return Math.min(pageTurns, totalTurns - pageTurns)
+
+// }
+
+// console.log(pageCount(30, 17))
+
+// function countingValleys(steps, path) {
+//     // Write your code here
+//     // steps = 8 = number of steps taken
+//     // path = sequence of steps = "UDDDUDUU"
+
+//     //setting a value if on mountain or below sea level
+//     let currLevel = 0
+//     // the amount of times we reach sea level
+//     let valleys = 0
+
+    
+//     // seperate string into Us or Ds
+//     path = path.split('')
+
+//     // looping through each step
+//     for(let i = 0; i < path.length; i++) {
+//         // if current step is up - add 1 level
+//         if(path[i] === 'U') {
+//             currLevel += 1
+//             // if current step is at sea level add 1 valley
+//             if(currLevel == 0) {
+//                 valleys += 1
+//             }
+//         }
+//         // if current step is down - subtract 1 level
+//         if(path[i] === 'D') {
+//             currLevel -= 1
+//         }
+//     }
+//     // amt of times we reached sea level
+//     return valleys
+// }
+
+// console.log(countingValleys(8, "UDDDUDUU"))
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    // Write your code here
+    // s = 7 = starting point of house
+    // t = 11 = ending point of house
+    // a = 5 = apple tree point
+    // b = 15 orange tree point
+    // apples = [ -2, 2, 1 ] = falling distance for each apple
+    // oranges = [ 5, -6 ] = for each orange
+
+    // return # of apples + # of oranges
+
+    // 3 5 6   77 ------- 10 11   15 21
+
+    console.log(apples.filter(apple => apple + a >= s && apple + a <= t).length)
+    console.log(oranges.filter(orange => orange + b >= s && orange + b <= t).length)
+
+
+}
+
+console.log(countApplesAndOranges(7, 11, 5, 15, [ -2, 2, 1 ], [ 5, -6 ]))
