@@ -111,7 +111,7 @@
 //                 "82,75", "4,1", "84,79", "54,4", "88,53",
 //                 "91,37", "60,57", "61,7", "62,51", "31,19"]
 
-// const teleport = (teleporters, die, start, end) => {
+// const teleport = (teleporters, die, height, end) => {
 //   // set moves counter
 //   let i = 0;
 //   // set list of landing squares
@@ -119,9 +119,9 @@
 //   // loop through amount of possible moves
 //   while (i < die) {
 //     i++;
-//     // add amount of moves to each square after start
+//     // add amount of moves to each square after height
 //     // will stop after max amt of moves reached
-//     let land = start + i;
+//     let land = height + i;
 
 //     // loop through teleporters array
 //     teleporters.forEach((x) => {
@@ -400,31 +400,136 @@ S = maximal length of each word or string
 // console.log(sum(test, 10))
 
 
-let h1 = [1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
-let h2 = [1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7]
-let word1 = 'abc'
-let word2 = 'zaba' // 7, 1, 3, 1  7(tallest) * 4 = 28
+// let h1 = [1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+// let h2 = [1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7]
+// let word1 = 'abc'
+// let word2 = 'zaba' // 7, 1, 3, 1  7(tallest) * 4 = 28
 
 // h = assigns values to each letter in the alphabet - always has length of 26
 // word = use the each letter and their corr height based on array
 // output = multiply tallest letter (highest value) but amount of letters in word
-  // input h1, word1 - returns 9 - b is the tallest letter and there are 3 letters in abc = 3 * 3
+  // input h1, word1 - returns 9 - b is the tallest letter height is 3 and there are 3 letters in abc = 3 * 3
 
-const pdfViewer = (h, word) => {
- let maxHeight = 0
+// const pdfViewer = (h, word) => {
+//  let maxHeight = 0
 
- for (let c of word) {
-   let charHeight = h[c.charCodeAt(0) - 97]
+//  for (let c of word) {
+//    let charHeight = h[c.charCodeAt(0) - 97]
 
-   if(charHeight > maxHeight) {
-     maxHeight = charHeight
-   }
- }
- return word.length * maxHeight
-}
+//    if(charHeight > maxHeight) {
+//      maxHeight = charHeight
+//    }
+//  }
+//  return word.length * maxHeight
+// }
 
-console.log(pdfViewer(h1, word1))
-console.log(pdfViewer(h2, word2))
+// console.log(pdfViewer(h1, word1))
+// console.log(pdfViewer(h2, word2))
+
+
+// const utopianTree = (n) => {
+// // n = number of cycles - the param
+
+// let height = 1
+
+// for(let i = height; i <= n; i++)  
+//   i % 2 === 0 ? height++ : height *= 2
+ 
+//   return height
+
+// }
+
+// console.log(utopianTree(0))
+// console.log(utopianTree(1))
+// console.log(utopianTree(4))
+
+// function angryProfessor(k, a) {
+//   // Write your code here
+//   //k = amt of students needed on time to have class
+//   // a = an array of arival times - pos nums are late 0 or neg nums are on time
+//   // if on time is greater or equal to k return yes
+//   // if not return no
+
+//   let late = 0
+//   let ontime = 0
+
+//   for(let i = 0; i < a.length; i++) {
+//     if(a[i] > 0) {
+//       late++ 
+//     }
+//     else {
+//       ontime++
+//     }
+//   }
+
+//   console.log(late)
+//   console.log(ontime)
+//     if (ontime >= k) {
+//       return 'NO'
+//     }
+
+//     else { return 'YES'}
+//   }
 
 
 
+
+// console.log(angryProfessor(3, [-1,-3, 4, 2]))
+// console.log(angryProfessor(2, [0, -1, 2, 1]))
+
+// function beautifulDays(i, j, k) {
+//   // Write your code here
+//   //i = start num
+//   //j = end num
+//   // k = divisible num
+//   let beautifulDay = 0
+//   for(let counter = i; counter <= j; counter++) {    
+
+//     let reverseNum = Number(counter.toString().split("").reverse().join(""))
+//     let difference = Math.abs(counter - reverseNum)
+//     let answer = difference/k
+  
+//     if (answer % 1 == 0) {
+//       beautifulDay++
+//     }
+//   }
+
+//   return beautifulDay
+// }
+
+// console.log(beautifulDays(20, 23, 6))
+// console.log(beautifulDays(11, 15, 3))
+
+// function viralAdvertising(n) {
+//   // Write your code here
+
+// let sharedTo = 5 // the initial amount of people shared to
+// let liked = 0 // the amount of likes
+// let reach = 0 // total views
+  
+// for (let i = 1; i <= n; i++) {
+//     liked = Math.floor(sharedTo/2) // half of the people it was shared to liked it
+//     reach += liked // total amount of likes
+//     sharedTo = liked * 3 // each like shares it to 3 others
+// }
+
+// return reach
+// }
+
+// console.log(viralAdvertising(3))
+
+// function saveThePrisoner(n, m, s) {
+//   // Write your code here
+//   // 1 2 - should return 2
+//   // 2 3 - should return 3
+//   // 4 5 1 2 3 4 5 1 - should return 1
+
+//   return ((s+m) - 1) % n || n
+
+// }
+
+// console.log(saveThePrisoner(5, 2, 1))
+
+
+// console.log(saveThePrisoner(5, 2, 2))
+// console.log(saveThePrisoner(5, 8, 4))
